@@ -1,13 +1,38 @@
 #We are going to create a simple Python program that asks the user to input two numbers and a mathematical operation (addition, subtraction, multiplication, or division) and the operation based on the user's input and print the result.
-float1 = float(input("Enter first number: "))
-float2 = float(input("Enter second number: "))
+def add(x, y):
+    return x + y
+def subtract(x, y):
+    return x - y
+def multiply(x, y):
+    return x * y
+def divide(x, y):
+    if y == 0:
+        return "Error! Division by zero."
+    return x / y
 
-sum_result = float1 + float2
-sub_result = float1 - float2
-mul_result = float1 * float2
-div_result = float1 / float2 if float2 != 0 else "undefined (division by zero)"
+def calculator():
+    print("Select operation:")
+    print("1. Add")
+    print("2. Subtract")
+    print("3. Multiply")
+    print("4. Divide")
 
-print(f"Sum: {sum_result}")
-print(f"Subtraction: {sub_result}")
-print(f"Multiplication: {mul_result}")
-print(f"Division: {div_result}")
+    choice = input("Enter choice (1/2/3/4): ")
+
+    if choice in ['1', '2', '3', '4']:
+        num1 = float(input("Enter first number: "))
+        num2 = float(input("Enter second number: "))
+
+        if choice == '1':
+            print(f"{num1} + {num2} = {add(num1, num2)}")
+        elif choice == '2':
+            print(f"{num1} - {num2} = {subtract(num1, num2)}")
+        elif choice == '3':
+            print(f"{num1} * {num2} = {multiply(num1, num2)}")
+        elif choice == '4':
+            print(f"{num1} / {num2} = {divide(num1, num2)}")
+    else:
+        print("Invalid input")
+
+if __name__ == "__main__":
+    calculator()
